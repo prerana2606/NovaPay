@@ -32,13 +32,23 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   NovaPay:
     # Config indicated by + and applies to all files under models/example/
-    models:
-  NovaPay:
-    # Config indicated by + and applies to all files under models/example/
-      +database: NOVAPAY_STAGING
-      staging:
-        +schema: staging
-      intermediate:
-        +schema: intermediate
-      marts:
-       +schema: marts
+    +database: NOVAPAY_STAGING
+    
+    staging:
+      # Mapping sub-folders to Snowflake Schemas
+      crm:
+        +schema: CRM
+      transactions:
+        +schema: TRANSACTIONS
+      vendor:
+        +schema: VENDOR
+      reference:
+        +schema: REFERENCE
+
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+      
+    marts:
+      +schema: marts
+      +materialized: table
