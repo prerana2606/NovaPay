@@ -4,39 +4,59 @@ sources:
   - name: crm_sources
     database: NOVAPAY_RAW
     schema: CRM
+    description: "Raw Customer Relationship Management data containing customer profiles and interaction logs."
     loaded_at_field: _LOADED_AT
     freshness:
       warn_after: {count: 24, period: hour}
     tables:
       - name: customers
+        identifier: CUSTOMERS
+        description: "Raw customer data stored in JSON format."
       - name: customer_interactions
+        identifier: CUSTOMER_INTERACTIONS
+        description: "Logs of customer touchpoints (calls, emails, etc.)."
 
   - name: transaction_sources
     database: NOVAPAY_RAW
     schema: TRANSACTIONS
+    description: "Financial transaction data including payments, merchant info, and account status."
     loaded_at_field: _LOADED_AT
     freshness:
       warn_after: {count: 24, period: hour}
     tables:
       - name: payments
+        identifier: PAYMENTS
+        description: "Transaction records. Note: Contains intentional duplicates and negative amounts."
       - name: accounts
+        identifier: ACCOUNTS
+        description: "Financial account metadata."
       - name: merchants
+        identifier: MERCHANTS
+        description: "Merchant registry and category codes."
 
   - name: vendor_sources
     database: NOVAPAY_RAW
     schema: VENDOR
+    description: "Third-party data feeds for credit scoring and product definitions."
     loaded_at_field: _LOADED_AT
     freshness:
       warn_after: {count: 24, period: hour}
     tables:
       - name: credit_scores
+        identifier: CREDIT_SCORES
+        description: "External credit bureau scores for customers."
       - name: product_catalog
+        identifier: PRODUCT_CATALOG
+        description: "Internal list of financial products and associated fees."
 
   - name: reference_sources
     database: NOVAPAY_RAW
     schema: REFERENCE
+    description: "Static reference tables for geodata and codes."
     loaded_at_field: _LOADED_AT
     freshness:
       warn_after: {count: 24, period: hour}
     tables:
-      - name: country_codes
+      - name: country_codes 
+        identifier: COUNTRY_CODES
+        description: "ISO standard country and region mappings."
