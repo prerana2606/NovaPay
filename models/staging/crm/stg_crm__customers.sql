@@ -3,6 +3,7 @@ select
     RAW_DATA:customer_id::VARCHAR as customer_id,
     RAW_DATA:first_name::VARCHAR as first_name,
     RAW_DATA:last_name::VARCHAR as last_name,
+    RAW_DATA:customer_tier::VARCHAR as customer_tier,
     RAW_DATA:email::VARCHAR as email,
     RAW_DATA:phone::VARCHAR as phone_number,
     RAW_DATA:date_of_birth::DATE as date_of_birth,
