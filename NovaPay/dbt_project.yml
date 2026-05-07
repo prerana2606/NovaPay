@@ -44,6 +44,9 @@ models:
         +schema: VENDOR
       reference:
         +schema: REFERENCE
+      dv:
+        +database: NOVAPAY_DWH
+        +schema: DATA_VAULT
 
     intermediate:
       +database: NOVAPAY_DWH
@@ -53,3 +56,13 @@ models:
       +database: NOVAPAY_DWH
       +schema: DIMENSIONAL
       +materialized: table
+
+    data_vault:
+      +database: NOVAPAY_DWH
+      +schema: DATA_VAULT
+      hubs:
+        +materialized: incremental
+      links:
+        +materialized: incremental
+      sats:
+        +materialized: incremental
