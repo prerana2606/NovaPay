@@ -1,17 +1,18 @@
 {%- set yaml_metadata -%}
-source_model: "stg_txn__accounts"
+source_model: 
+  transaction_sources: "accounts"
 derived_columns:
   RECORD_SOURCE: "!TXN_ACCOUNTS"
-  LOAD_DATETIME: "LOADED_AT"
+  LOAD_DATETIME: "CURRENT_TIMESTAMP()"
 hashed_columns:
   ACCOUNT_HK: "ACCOUNT_ID"
   CUSTOMER_HK: "CUSTOMER_ID"
-  CUSTOMER_ACCOUNT_LK:
+  CUSTOMER_ACCOUNT_HK:
     - "CUSTOMER_ID"
     - "ACCOUNT_ID"
-  ACCOUNT_HASHDIFF:
+  HASHDIFF:
     is_hashdiff: true
-    columns:
+    columns:  
       - "ACCOUNT_TYPE"
       - "ACCOUNT_STATUS"
       - "CURRENCY_CODE"

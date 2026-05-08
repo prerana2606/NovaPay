@@ -1,4 +1,4 @@
-{{ config(materialized='incremental', schema='DATA_VAULT') }}
+{{ config(materialized='table', schema='DATA_VAULT') }}
 
 {%- set source_model = "stg_vault_accounts" -%}
 {%- set src_pk = "ACCOUNT_HK" -%}

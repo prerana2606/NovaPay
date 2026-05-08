@@ -1,8 +1,8 @@
-{{ config(materialized='incremental', schema='DATA_VAULT') }}
+{{ config(materialized='table', schema='DATA_VAULT') }}
 
-{%- set source_model = "stg_vault_accounts" -%}
-{%- set src_pk = "CUSTOMER_ACCOUNT_LK" -%}
-{%- set src_fk = ["CUSTOMER_HK", "ACCOUNT_HK"] -%}
+{%- set source_model = "stg_vault_accounts" , 'stg_vault_customers' -%}
+{%- set src_pk = "CUSTOMER_ACCOUNT_HK" -%}
+{%- set src_fk = ["CUSTOMER_HK", "ACCOUNT_HK"] -%}        
 {%- set src_ldts = "LOAD_DATETIME" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
 
@@ -11,4 +11,3 @@
                     src_ldts=src_ldts,
                     src_source=src_source,
                     source_model=source_model) }}
-

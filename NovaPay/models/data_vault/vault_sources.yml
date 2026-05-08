@@ -42,7 +42,7 @@ models:
   - name: link_customer_account
     description: "Link table tracking relationship between customers and accounts"
     columns:
-      - name: CUSTOMER_ACCOUNT_LK
+      - name: CUSTOMER_ACCOUNT_HK
         description: "Hash key for the link (composite of CUSTOMER_ID + ACCOUNT_ID)"
         tests:
           - unique
@@ -69,7 +69,7 @@ models:
         description: "Hash key linking to hub_customer"
         tests:
           - not_null
-      - name: CUSTOMER_HASHDIFF
+      - name: HASHDIFF
         description: "Hash diff for change detection"
         tests:
           - not_null
@@ -84,7 +84,7 @@ models:
         description: "Hash key linking to hub_account"
         tests:
           - not_null
-      - name: ACCOUNT_HASHDIFF
+      - name: HASHDIFF
         description: "Hash diff for change detection"
         tests:
           - not_null

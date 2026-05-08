@@ -2,7 +2,7 @@
 
 {%- set source_model = "stg_vault_accounts" -%}
 {%- set src_pk = "ACCOUNT_HK" -%}
-{%- set src_hashdiff = "ACCOUNT_HASHDIFF" -%}
+{%- set src_hashdiff = "HASHDIFF" -%}
 {%- set src_payload = ["ACCOUNT_TYPE", "ACCOUNT_STATUS", "CURRENCY_CODE", "CREDIT_LIMIT", "CURRENT_BALANCE"] -%}
 {%- set src_ldts = "LOAD_DATETIME" -%}
 {%- set src_source = "RECORD_SOURCE" -%}

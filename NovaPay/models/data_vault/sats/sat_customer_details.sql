@@ -2,7 +2,7 @@
 
 {%- set source_model = "stg_vault_customers" -%}
 {%- set src_pk = "CUSTOMER_HK" -%}
-{%- set src_hashdiff = "CUSTOMER_HASHDIFF" -%}
+{%- set src_hashdiff = "HASHDIFF" -%}
 {%- set src_payload = ["FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NUMBER", "CUSTOMER_TIER", "DATE_OF_BIRTH", "ADDRESS_CITY", "ADDRESS_COUNTRY"] -%}
 {%- set src_ldts = "LOAD_DATETIME" -%}
 {%- set src_source = "RECORD_SOURCE" -%}
